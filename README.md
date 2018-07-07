@@ -10,7 +10,7 @@
 <ul>
 <li><strong>Create a class model and use the data annotations</strong></li>
 </ul>
-<pre class="language-csharp"><code>    public class EmployeeModel
+<pre><code>public class EmployeeModel
     {
 
         [PrimaryKey]
