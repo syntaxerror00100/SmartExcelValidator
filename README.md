@@ -4,7 +4,7 @@
 <p>A smart way to validate excel data using NPOI</p>
 <p>&nbsp;</p>
 <ul>
-<li><strong>1. Install using nuget package manager console</strong></li>
+<li><strong>Install using nuget package manager console</strong></li>
 </ul>
 <pre class="language-csharp"><code>Install-Package SmartExcelValidator -Version 2.1.0</code></pre>
 <p>&nbsp;</p>
