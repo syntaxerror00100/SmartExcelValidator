@@ -43,12 +43,12 @@ namespace SmartExcelValidator_Sample
 
             var listOfEmployee = new List<EmployeeModel>(); //IF NO ERROR  AUTOMAPPED RESULT WILL BE LOADED HERE
 
-            var result = validator.UploadExcelAndDoTheDirtyJob<EmployeeModel>(out listOfEmployee, CostumValidation);
+            var result = validator.Validate<EmployeeModel>(out listOfEmployee, CostumValidation);
 
             // CHECK IF WITH ERROR; 
             // IF NO ERROR DO WHATEVER YOU WANT
             // ACCES THE LIS
-            bool isWithError = result.WithError;
+            bool isWithError = result.IsWithError;
 
             File.WriteAllBytes(@"X:\test.xlsx",result.ExcelResultStream.ToArray());
             
