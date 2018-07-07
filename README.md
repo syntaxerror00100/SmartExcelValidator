@@ -5,8 +5,9 @@
 <pre class="language-csharp"><code>Install-Package SmartExcelValidator -Version 2.1.0</code></pre>
 <p>&nbsp;</p>
 <p>Create object of&nbsp;<strong>ExcelValidator&nbsp;</strong>feed your excel excel's&nbsp;filestream</p>
+
 <pre class="language-csharp"><code>
-            var excelFileStream = new FileStream(@"EXCEL FILE PATH", FileMode.Open);
+           var excelFileStream = new FileStream(@"EXCEL FILE PATH", FileMode.Open);
 
 
             var validator = new ExcelValidator(excelFileStream)
@@ -24,7 +25,7 @@
                     StatusErrorAnnotationMethod       = Enums.StatErrorAnnotationMethod.RowByRowInOneColumnWithStatus
                 }
             };</code></pre>
-<p>&nbsp;</p>
+<p>The settings above code will start reading the column at Column <strong>B&nbsp;</strong>row <strong>2&nbsp;</strong>or (B2) and the actual data is at row 3.</p>
 <p><strong>&nbsp;</strong></p>
 <p><strong>&nbsp;</strong></p>
 <table class="table table-bordered">
