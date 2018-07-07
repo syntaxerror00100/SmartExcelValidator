@@ -10,7 +10,7 @@
 <ul>
 <li><strong>Create a class model and use the data annotations</strong></li>
 </ul>
-<pre><code>public class EmployeeModel
+<pre class="language-csharp"><code>    public class EmployeeModel
     {
 
         [PrimaryKey]
@@ -43,8 +43,45 @@
         [ExcelColumnName("Location Name")]
         public int LocationId { get; set; }
          
-    }
-    </code></pre>
+    }</code></pre>
+	
+	<code><pre></code></pre>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-asdfasdf
+<ul>
+<li><strong>Create an object of&nbsp;ExcelValidator&nbsp;feed your excel's&nbsp;file stream</strong></li>
+</ul>
+<pre class="language-csharp"><code>
+           var excelFileStream = new FileStream(@"EXCEL FILE PATH", FileMode.Open);
+
+
+            var validator = new ExcelValidator(excelFileStream)
+            {
+                Settings =
+                {
+                    WorkSheetName                     = "Employee",
+                    ColoumnStartAtColumnNumber        = 2,
+                    ColoumnStartAtRowNumber           = 2,
+                    DataStartAtRowNumber              = 3,
+                    RowByRowColumnNumberLocation      = 1,
+                    TableDependencyDataset            = GetTableDependencies(),
+                    TableNameForPrimaryUniqueChecking = "employeesDT",
+                    AutoMapType                       = Enums.AutomapType.AutoMapWithForienKeyDependency,
+                    StatusErrorAnnotationMethod       = Enums.StatErrorAnnotationMethod.RowByRowInOneColumnWithStatus
+                }
+            };</code></pre>
+<p>The settings above code will start reading the column at Column <strong>B&nbsp;</strong>row <strong>2&nbsp;</strong>or (B2) and the actual data is in row 3.</p>
+<p><strong>&nbsp;</strong></p>
+<ul>
+<li><strong>Execute&nbsp;the validation, the validate method has an out parameter that will return a list of your object if there no error encountered in validations</strong></li>
+</ul>
+<pre class="language-csharp"><code>  var listOfEmployee = new List&lt;EmployeeModel&gt;(); //IF NO ERROR  AUTOMAPPED RESULT WILL BE LOADED HERE
+
+            var result = validator.Validate&lt;EmployeeModel&gt;(out listOfEmployee, CostumValidation);
+
+            // CHECK IF WITH ERROR; 
+            // IF NO ERROR DO WHATEVER YOU WANT
+            bool isWithError = result.IsWithError;</code></pre>
+<p>To further understand how to use this awesome&nbsp;library please download the sample project.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
