@@ -27,20 +27,16 @@ namespace SmartExcelValidator_Sample
         [ValidationRegex("^[a-zA-Z]")]
         [ExcelColumnName("Last Name")]
         public string LastName { get; set; }
-
-        [Required]
-        [ExcelColumnName("Birth Date")]
-        public DateTime BirthDate { get; set; } // WILL USE COSTUM VALIDATION HERE FOR SAMPLE
-
+        
         [Required]
         [ExcelColumnName("Department Name")]
         [TableDependency("departmentDT","Name","ID")]
-        public int DepartmentId { get; set; }
+        public string DepartmentId { get; set; }
 
 
         [TableDependency("locationDT", "Name", "ID")]
         [ExcelColumnName("Location Name")]
-        public int LocationId { get; set; }
+        public string LocationId { get; set; }
          
     }
 }

@@ -34,7 +34,8 @@ namespace SmartExcelValidator_Sample
                     TableDependencyDataset            = GetTableDependencies(),
                     TableNameForPrimaryUniqueChecking = "employeesDT",
                     AutoMapType                       = Enums.AutomapType.AutoMapWithForienKeyDependency,
-                    StatusErrorAnnotationMethod       = Enums.StatErrorAnnotationMethod.RowByRowInOneColumnWithStatus
+                    StatusErrorAnnotationMethod       = Enums.StatErrorAnnotationMethod.RowByRowInOneColumnWithStatus,
+                    NumberOfRowsPerThread = 1000
                 }
             };
             // COLUMN NUMBER WHERE TO PUT THE ERROR MESSAGES / ANNOTATIONS
@@ -43,7 +44,7 @@ namespace SmartExcelValidator_Sample
 
             var listOfEmployee = new List<EmployeeModel>(); //IF NO ERROR  AUTOMAPPED RESULT WILL BE LOADED HERE
 
-            var result = validator.Validate<EmployeeModel>(out listOfEmployee, CostumValidation);
+            var result = validator.Validate<EmployeeModel>(out listOfEmployee);
 
             // CHECK IF WITH ERROR; 
             // IF NO ERROR DO WHATEVER YOU WANT
